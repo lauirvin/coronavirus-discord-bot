@@ -10,6 +10,8 @@ client.on('ready', () => {
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
   if (!Channel) return console.error("Couldn't find the channel.");
 
+  Channel.send('**👇🏻 COMMANDS 👇🏻**\n **!latest** - get the latest coronavirus update in HK \n **!recent** - get recent coronavirus updates in HK');
+
   let currentData;
   const { updateData, sendNewCase } = commands;
 
