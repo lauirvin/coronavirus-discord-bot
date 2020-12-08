@@ -1,4 +1,4 @@
-const fetchCases = require("./scraper");
+const fetchCases = require('./scraper');
 
 let latestData;
 
@@ -8,8 +8,8 @@ const updateData = new Promise((resolve, reject) => {
       latestData = res;
       resolve(res);
     })
-    .catch(() => {
-      reject("Failed to fetch data");
+    .catch((err) => {
+      reject(err);
     });
 });
 
@@ -29,12 +29,12 @@ const sendAllData = () => {
   latestData.forEach((c, index) => {
     caseArray.push(
       `${c.cases} confirmed cases on ${c.date} ${
-        index === 0 ? "**(latest)**" : ""
-      }`
+        index === 0 ? '**(latest)**' : ''
+      }`,
     );
   });
 
-  const transformString = caseArray.reverse().join("\n");
+  const transformString = caseArray.reverse().join('\n');
   return transformString;
 };
 

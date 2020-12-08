@@ -1,10 +1,11 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+
 const client = new Discord.Client();
-const commands = require("./commands");
+const commands = require('./commands');
 
-require("dotenv").config();
+require('dotenv').config();
 
-client.on("ready", () => {
+client.on('ready', () => {
   console.log(`${client.user.tag} is online!`);
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
   if (!Channel) return console.error("Couldn't find the channel.");
@@ -19,20 +20,22 @@ client.on("ready", () => {
       Channel.send(sendNewCase());
     });
   }, 60000);
+
+  return 'client ready';
 });
 
-client.on("message", (message) => {
+client.on('message', (message) => {
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
   const { updateData, sendLatestData, sendAllData } = commands;
-  const commandsList = ["!latest", "!recent"];
+  const commandsList = ['!latest', '!recent'];
 
   if (commandsList.includes(message.content)) {
     updateData.then(() => {
       switch (message.content) {
-        case "!latest":
+        case '!latest':
           Channel.send(sendLatestData());
           break;
-        case "!recent":
+        case '!recent':
           Channel.send(sendAllData());
           break;
         default:

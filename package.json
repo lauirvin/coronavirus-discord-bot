@@ -1,0 +1,31 @@
+{
+  "name": "hk-coronavirus-discord-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot for Live Coronavirus Updates in Hong Kong",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "scripts": {
+    "lint": "eslint *.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauirvin/hk-coronavirus-discord-bot.git"
+  },
+  "author": "Irvin Ives Lau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauirvin/hk-coronavirus-discord-bot/issues"
+  },
+  "homepage": "https://github.com/lauirvin/hk-coronavirus-discord-bot#readme"
+}
