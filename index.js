@@ -15,6 +15,10 @@ client.on('ready', () => {
   let currentData;
   const { updateData, sendNewCase } = commands;
 
+  updateData.then((res) => {
+    currentData = res;
+  });
+
   setInterval(() => {
     updateData.then((res) => {
       if (currentData !== res) {
@@ -22,7 +26,7 @@ client.on('ready', () => {
         Channel.send(sendNewCase());
       }
     });
-  }, 60000);
+  }, 5000);
 
   return 'client ready';
 });
