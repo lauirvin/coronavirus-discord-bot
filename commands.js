@@ -6,12 +6,17 @@ const updateData = new Promise((resolve, reject) => {
   fetchCases
     .then((res) => {
       latestData = res;
-      resolve(true);
+      resolve(res);
     })
     .catch(() => {
       reject("Failed to fetch data");
     });
 });
+
+const sendNewCase = () => {
+  const { date, cases } = latestData[0];
+  return `❗️**LATEST UPDATE❗️**\n${cases} confirmed cases on ${date}`;
+};
 
 const sendLatestData = () => {
   const { date, cases } = latestData[0];
@@ -35,6 +40,7 @@ const sendAllData = () => {
 
 module.exports = {
   updateData,
+  sendNewCase,
   sendLatestData,
   sendAllData,
 };

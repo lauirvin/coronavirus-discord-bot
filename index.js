@@ -8,6 +8,17 @@ client.on("ready", () => {
   console.log(`${client.user.tag} is online!`);
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
   if (!Channel) return console.error("Couldn't find the channel.");
+
+  let currentData;
+  const { updateData, sendNewCase } = commands;
+
+  setInterval(() => {
+    updateData.then((res) => {
+      if (currentData === res) return;
+      currentData = res;
+      Channel.send(sendNewCase());
+    });
+  }, 60000);
 });
 
 client.on("message", (message) => {
