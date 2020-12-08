@@ -16,6 +16,7 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "scripts": {
+    "build": "npm install && node index.js",
     "lint": "eslint *.js --fix"
   },
   "repository": {
