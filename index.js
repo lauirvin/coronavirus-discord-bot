@@ -17,9 +17,10 @@ client.on('ready', () => {
 
   setInterval(() => {
     updateData.then((res) => {
-      if (currentData === res) return;
-      currentData = res;
-      Channel.send(sendNewCase());
+      if (currentData !== res) {
+        currentData = res;
+        Channel.send(sendNewCase());
+      }
     });
   }, 60000);
 
@@ -28,10 +29,21 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
-  const { updateData, sendLatestData, sendAllData } = commands;
-  const commandsList = ['!latest', '!recent'];
+  const {
+    updateData, sendLatestData, sendAllData, sendLatestCountryData, sendAllCountryData,
+  } = commands;
 
-  if (commandsList.includes(message.content)) {
+  if (!message.content.startsWith('!')) return;
+
+  if (message.content.startsWith('!latest:') || message.content.startsWith('!recent:')) {
+    const handleCountries = (command, fn) => {
+      const countryCode = message.content.replace(command, '');
+      fn(countryCode).then((msg) => Channel.send(msg));
+    };
+
+    handleCountries('!latest:', sendLatestCountryData);
+    handleCountries('!recent:', sendAllCountryData);
+  } else {
     updateData.then(() => {
       switch (message.content) {
         case '!latest':
