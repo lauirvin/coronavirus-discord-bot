@@ -26,7 +26,7 @@ client.on('ready', () => {
         Channel.send(sendNewCase());
       }
     });
-  }, 5000);
+  }, 300000);
 
   return 'client ready';
 });
