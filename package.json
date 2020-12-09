@@ -1,5 +1,5 @@
 {
-  "name": "hk-coronavirus-discord-bot",
+  "name": "coronavirus-discord-bot",
   "version": "1.0.0",
   "description": "Discord Bot for Live Coronavirus Updates",
   "main": "index.js",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lauirvin/hk-coronavirus-discord-bot.git"
+    "url": "git+https://github.com/lauirvin/coronavirus-discord-bot.git"
   },
   "author": "Irvin Ives Lau",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lauirvin/hk-coronavirus-discord-bot/issues"
+    "url": "https://github.com/lauirvin/coronavirus-discord-bot/issues"
   },
-  "homepage": "https://github.com/lauirvin/hk-coronavirus-discord-bot#readme"
+  "homepage": "https://github.com/lauirvin/coronavirus-discord-bot#readme"
 }

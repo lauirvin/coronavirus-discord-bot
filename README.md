@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/lauirvin/react-component-library-typescript-boilerplate">
+  <a href="https://github.com/lauirvin/coronavirus-discord-bot">
     <img alt="logo" src="https://img.mlo-online.com/files/base/ebm/mlo/image/2020/05/Pixabay_coronavirus_5107715_1280.5eb16e6f5f05a.png?auto=format&fit=max&w=1200" width="150" />
   </a>
 </p>
