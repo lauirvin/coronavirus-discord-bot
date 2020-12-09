@@ -1,6 +1,14 @@
 [
   {
+    "country": "HK",
+    "url": "https://www.worldometers.info/coronavirus/country/china-hong-kong-sar/"
+  },
+  {
     "country": "UK",
     "url": "https://www.worldometers.info/coronavirus/country/uk/"
+  },
+  {
+    "country": "CA",
+    "url": "https://www.worldometers.info/coronavirus/country/canada/"
   }
 ]

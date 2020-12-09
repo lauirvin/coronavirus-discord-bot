@@ -1,12 +1,10 @@
-const { createServer } = require('http');
-
 const Discord = require('discord.js');
 
 const commands = require('./commands');
 
 const client = new Discord.Client();
-const server = createServer(() => {});
-server.listen(3000);
+const updateMessage = require('./update_message.json');
+const packageJson = require('./package.json');
 require('dotenv').config();
 
 client.on('ready', () => {
@@ -14,7 +12,10 @@ client.on('ready', () => {
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
   if (!Channel) return console.error("Couldn't find the channel.");
 
-  Channel.send('**👇🏻 COMMANDS 👇🏻**\n **!latest** - get the latest coronavirus update in HK \n **!recent** - get recent coronavirus updates in HK');
+  const { message, patchNotes } = updateMessage;
+  const { version } = packageJson;
+
+  Channel.send(`${message.replace(/defaultCountry/g, process.env.DEFAULT_COUNTRY_CODE)}\n\n**Patch Notes (v${version}):**\n*${patchNotes}*`);
 
   let currentData;
   const { updateData, sendNewCase } = commands;
@@ -30,7 +31,7 @@ client.on('ready', () => {
         Channel.send(sendNewCase());
       }
     });
-  }, 300000);
+  }, 5000);
 
   return 'client ready';
 });

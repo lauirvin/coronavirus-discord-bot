@@ -1,7 +1,7 @@
 {
   "name": "hk-coronavirus-discord-bot",
   "version": "1.0.0",
-  "description": "Discord Bot for Live Coronavirus Updates in Hong Kong",
+  "description": "Discord Bot for Live Coronavirus Updates",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.21.0",

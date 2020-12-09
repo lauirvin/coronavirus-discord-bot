@@ -1,8 +1,14 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const moment = require('moment');
+const countries = require('./countries.json');
+require('dotenv').config();
 
-const fetchCases = (url = 'https://www.worldometers.info/coronavirus/country/china-hong-kong-sar/') => new Promise((resolve) => {
+const defaultCountryURL = countries.find(
+  (x) => x.country === process.env.DEFAULT_COUNTRY_CODE,
+).url;
+
+const fetchCases = (url = defaultCountryURL) => new Promise((resolve) => {
   axios(url)
     .then((response) => {
       const html = response.data;
