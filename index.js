@@ -1,8 +1,12 @@
+const { createServer } = require('http');
+
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
 const commands = require('./commands');
 
+const client = new Discord.Client();
+const server = createServer(() => {});
+server.listen(3000);
 require('dotenv').config();
 
 client.on('ready', () => {
