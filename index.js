@@ -26,7 +26,7 @@ client.on('ready', () => {
 
   setInterval(() => {
     updateData.then((res) => {
-      if (currentData[0].date !== res[0].date && currentData[0].cases !== res[0].cases) {
+      if (currentData[0].date !== res[0].date) {
         currentData = res;
         Channel.send(sendNewCase(res));
       }
