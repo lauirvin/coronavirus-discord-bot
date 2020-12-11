@@ -26,9 +26,9 @@ client.on('ready', () => {
 
   setInterval(() => {
     updateData.then((res) => {
-      if (currentData !== res) {
+      if (currentData[0].date !== res[0].date && currentData[0].cases !== res[0].cases) {
         currentData = res;
-        Channel.send(sendNewCase());
+        Channel.send(sendNewCase(res));
       }
     });
   }, 5000);
@@ -38,33 +38,33 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
   const Channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
-  const {
-    updateData, sendLatestData, sendAllData, sendLatestCountryData, sendAllCountryData,
-  } = commands;
+  const { sendLatestCountryData, sendAllCountryData } = commands;
+
+  const handleCountries = (command, fn) => {
+    const countryCode = message.content.replace(command, '');
+    fn(countryCode).then((msg) => Channel.send(msg));
+  };
+
+  const handleDefaultCountry = (fn) => {
+    fn(process.env.DEFAULT_COUNTRY_CODE).then((msg) => Channel.send(msg));
+  };
 
   if (!message.content.startsWith('!')) return;
 
   if (message.content.startsWith('!latest:') || message.content.startsWith('!recent:')) {
-    const handleCountries = (command, fn) => {
-      const countryCode = message.content.replace(command, '');
-      fn(countryCode).then((msg) => Channel.send(msg));
-    };
-
     handleCountries('!latest:', sendLatestCountryData);
     handleCountries('!recent:', sendAllCountryData);
   } else {
-    updateData.then(() => {
-      switch (message.content) {
-        case '!latest':
-          Channel.send(sendLatestData());
-          break;
-        case '!recent':
-          Channel.send(sendAllData());
-          break;
-        default:
-          break;
-      }
-    });
+    switch (message.content) {
+      case '!latest':
+        handleDefaultCountry(sendLatestCountryData);
+        break;
+      case '!recent':
+        handleDefaultCountry(sendAllCountryData);
+        break;
+      default:
+        break;
+    }
   }
 });
 

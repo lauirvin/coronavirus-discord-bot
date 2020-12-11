@@ -1,12 +1,9 @@
 const fetchCases = require('./scraper');
 const countries = require('./countries.json');
 
-let latestData;
-
 const updateData = new Promise((resolve, reject) => {
   fetchCases()
     .then((res) => {
-      latestData = res;
       resolve(res);
     })
     .catch((err) => {
@@ -14,29 +11,9 @@ const updateData = new Promise((resolve, reject) => {
     });
 });
 
-const sendNewCase = () => {
+const sendNewCase = (latestData) => {
   const { date, cases } = latestData[0];
   return `❗️**LATEST UPDATE❗️**\n${cases} confirmed cases on ${date}`;
-};
-
-const sendLatestData = () => {
-  const { date, cases } = latestData[0];
-  return `${cases} confirmed cases on ${date}`;
-};
-
-const sendAllData = () => {
-  const caseArray = [];
-
-  latestData.forEach((c, index) => {
-    caseArray.push(
-      `${c.cases} confirmed cases on ${c.date} ${
-        index === 0 ? '**(latest)**' : ''
-      }`,
-    );
-  });
-
-  const transformString = caseArray.reverse().join('\n');
-  return transformString;
 };
 
 const sendLatestCountryData = (country) => new Promise((resolve) => {
@@ -76,8 +53,6 @@ const sendAllCountryData = (country) => new Promise((resolve) => {
 module.exports = {
   updateData,
   sendNewCase,
-  sendLatestData,
-  sendAllData,
   sendLatestCountryData,
   sendAllCountryData,
 };
