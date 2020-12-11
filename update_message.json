@@ -1,4 +1,4 @@
 {
-  "message": "**👇🏻 COMMANDS 👇🏻**\n **!latest** - get the latest coronavirus update in defaultCountry \n **!recent** - get recent coronavirus updates in defaultCountry",
+  "message": "**👇🏻 COMMANDS 👇🏻**\n**!latest** - get the latest coronavirus update in defaultCountry\n**!recent** - get recent coronavirus updates in defaultCountry\n**!opensource** - get open source GitHub repository",
   "patchNotes": "update: data fetching interval - 5000ms\nupdate: set default country\nfeat: added Canada to country list\nfeat:added patch notes\ndoc: added README.md"
 }
