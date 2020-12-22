@@ -32,10 +32,16 @@ const fetchCases = (url = defaultCountryURL) => new Promise((resolve) => {
         return [latestDate, ...prevDates];
       };
 
-      const listOfCases = dates().map((date, i) => ({
-        date,
-        cases: numberOfCases[i],
-      }));
+      const listOfCases = [];
+
+      dates().forEach((date, i) => {
+        if (!Number.isNaN(parseInt(numberOfCases[i], 10))) {
+          listOfCases.push({
+            date,
+            cases: numberOfCases[i],
+          });
+        }
+      });
 
       resolve(listOfCases);
     })

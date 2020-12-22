@@ -50,9 +50,17 @@ const sendAllCountryData = (country) => new Promise((resolve) => {
   });
 });
 
+const sendAvailableCountries = () => {
+  const countryList = countries.map((country) => `${country.country} ${country.emoji}`).join('\n');
+  const msg = '**👇🏻 COMMANDS 👇🏻**\nlatest:COUNTRYCODE\n!recent:COUNTRYCODE\n\n**AVAILABLE COUNTRIES:**';
+
+  return `${msg}\n${countryList}`;
+};
+
 module.exports = {
   updateData,
   sendNewCase,
   sendLatestCountryData,
   sendAllCountryData,
+  sendAvailableCountries,
 };

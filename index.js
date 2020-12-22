@@ -15,7 +15,7 @@ client.on('ready', () => {
   const { message, patchNotes } = updateMessage;
   const { version } = packageJson;
 
-  Channel.send(`${message.replace(/defaultCountry/g, process.env.DEFAULT_COUNTRY_CODE)}\n\n**Patch Notes (v${version}):**\n*${patchNotes}*`);
+  Channel.send(`**Patch Notes (v${version}):**\n*${patchNotes}*\n\n${message.replace(/defaultCountry/g, process.env.DEFAULT_COUNTRY_CODE)}`);
 
   let currentData;
   const { updateData, sendNewCase } = commands;
@@ -64,6 +64,9 @@ client.on('message', (message) => {
         break;
       case '!opensource':
         Channel.send('https://github.com/lauirvin/coronavirus-discord-bot');
+        break;
+      case '!countries':
+        Channel.send(commands.sendAvailableCountries());
         break;
       default:
         break;

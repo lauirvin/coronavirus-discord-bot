@@ -1,18 +1,22 @@
 [
   {
     "country": "HK",
-    "url": "https://www.worldometers.info/coronavirus/country/china-hong-kong-sar/"
+    "url": "https://www.worldometers.info/coronavirus/country/china-hong-kong-sar/",
+    "emoji": "🇭🇰"
   },
   {
     "country": "UK",
-    "url": "https://www.worldometers.info/coronavirus/country/uk/"
+    "url": "https://www.worldometers.info/coronavirus/country/uk/",
+    "emoji": "🇬🇧"
   },
   {
     "country": "CA",
-    "url": "https://www.worldometers.info/coronavirus/country/canada/"
+    "url": "https://www.worldometers.info/coronavirus/country/canada/",
+    "emoji": "🇨🇦"
   },
   {
     "country": "US",
-    "url": "https://www.worldometers.info/coronavirus/country/us/"
+    "url": "https://www.worldometers.info/coronavirus/country/us/",
+    "emoji": "🇺🇸"
   }
 ]
