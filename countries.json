@@ -10,5 +10,9 @@
   {
     "country": "CA",
     "url": "https://www.worldometers.info/coronavirus/country/canada/"
+  },
+  {
+    "country": "US",
+    "url": "https://www.worldometers.info/coronavirus/country/us/"
   }
 ]

@@ -1,4 +1,4 @@
 {
   "message": "**👇🏻 COMMANDS 👇🏻**\n**!latest** - get the latest coronavirus update in defaultCountry\n**!recent** - get recent coronavirus updates in defaultCountry\n**!opensource** - get open source GitHub repository",
-  "patchNotes": "feat: !opensource command\nfix: latest update notification\nupdate: removed duplicated fns"
+  "patchNotes": "feat: added US to country list"
 }
