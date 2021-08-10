@@ -18,5 +18,15 @@
     "country": "US",
     "url": "https://www.worldometers.info/coronavirus/country/us/",
     "emoji": "🇺🇸"
+  },
+  {
+    "country": "IN",
+    "url": "https://www.worldometers.info/coronavirus/country/india/",
+    "emoji": "🇮🇳"
+  },
+  {
+    "country": "JP",
+    "url": "https://www.worldometers.info/coronavirus/country/japan/",
+    "emoji": "🇯🇵"
   }
 ]

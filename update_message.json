@@ -1,4 +1,4 @@
 {
   "message": "**👇🏻 COMMANDS 👇🏻**\n**!latest** - get the latest coronavirus update in defaultCountry\n**!recent** - get recent coronavirus updates in defaultCountry\n**!opensource** - get open source GitHub repository",
-  "patchNotes": "fix: parse correct case no. \nupdate: new update notes order \nfeat: added !countries command"
+  "patchNotes": "feat: added India to country list\nfeat: added Japan to country list"
 }
